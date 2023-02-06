@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "metro-schedule-cal",
+  "private_key_id": "34294e516a8c641e8c42439ce370755c73d318b9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEVNOJWCAX+Pms\n2Nm/GdTayh64oE5tvEvABwnRYHIEGMa+jqOpv8rqEJMgOIgYeikL0qcAo/J8fuU9\nQKfa+ngKnRMZz5vp8LR9r9gu8b/ZHqMfjujfzu8N0qGMCV3C4Q/Q9ettstsqi4Aw\nKQhW3qlucOrkfJEXWj8ezyTg4GbxAclZbMHrLmhMiBRgM6HtnzdAm7QQW+vFjUpE\nPfRrDRtBnuTZ3ahmFZQm4KdO7iMFnl3povUCu4+se99un2aIm2xbX77bcI6IkJee\n9zthdR4cD0rquKSRzrOfsvGiDHlPacsmcm83RMYbSoKRaL7jJuIrO9IbdAG2JX3f\niDog7nVpAgMBAAECggEAYNM41BZrFYeLkuwLT0ztBc4CoqkkpMflT9noxKLc+BpE\nAfyUyIW3DAKKnKxkqjWtApCsHgu87hsi8Tdu0PcPtqRKpEMYMKKuUQIlCtnc9LZA\nWrL/NEl46gdD9q0z2YVnaHWv2xUHM49C8/14iGcdhkMYBQFOCQdP8+DS3jitbBPI\nohuY1/RTlhsrt4P2fP3Z0maOnNA0KOl7i9XDHWfYEO/UFAfeomdQxc5dlpvgC+aW\n++VPbmDJgjfqf9qAXDcf6jpAXsftKSgHT4svJU66j4mspqfvq0WejymaOfCL3b6h\nAzSF2bjtz3hS075QV27JQF1rB5rSIMxAYJPlmtK1hQKBgQDy8HX+4pPLa+d0/RZd\nKY+Bnd/NZGD+qdH2f/JIBy1wDQsHguP6rUTi6IzQU4cXEdt/sIn5yVfr2K/hZSrd\npB+2avyJBYouZR4A/cpAXf8gB1bzhQgLire7Kq+bN9ckx+EUmAXVhOUa6hHonDxe\nQOXlSkPoiEW8lxyfZsCkRCyQSwKBgQDO4ugmGXUg5Mmi+EC6l5/ZXwax1rybiKBS\ni2RWoAfUg0The7ogdPHGbAs2kUFvSyCyHhoei1tzdN2gLiaulrEUDFR1HtZ+zFoO\nBPZ3Ql3sSg4gmarwno9bNEr/5PqFjCHHlDO05uOAg2E/TnfuT4XR4oYA/uzVIrj9\nKk8AZVpImwKBgHjwDb16K9r7d3i8uRJdqyv6XLxRuRttjLFqlkEXGZ6LT69IkJdt\nBDr1S4w12K06XYveZYFsoxEsiLnq9ADsQEE+V0Ma9+QKwHn73WBXqrbWEIof8pZU\nUwygvlTF4ptTyY/H8jeN9cOFPK8Qf9jn88pGQzISDK1KiJwtub7MlWarAoGAUisC\nwucHgxn7D5QDuVgxL5czRHyiCi/4ZPBh2JnUok3ElL2cTfnEcOdGiNSmJXq0MKoN\n+6Wjm7aFs3HBAURubiT7gkzOKiwldD36WaFtRkSfWclOgCSpkTKyuvGJonLmk6rD\n4ox1PPxxKkCTF35UCukqCck17OzOhhZArEqU0hMCgYEA3WgTsxjVH2Or8l8OyjCu\nXob158P3YLAzJEJHmlWue35YZ27C2jDqo4/dr+xuARxTAbH0N7oAMNdQND+JkHYC\n6xgT0CPujCaWtt96eGJiO3yFQf1S9iBDio2RV/GTQltyiu153RQtu0UAfzpmUKc2\n828JCPasDWlwhlr0La/asM8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "calscheduler@metro-schedule-cal.iam.gserviceaccount.com",
+  "client_id": "111125547297882055591",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/calscheduler%40metro-schedule-cal.iam.gserviceaccount.com"
+}
