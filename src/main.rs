@@ -3,7 +3,7 @@ extern crate google_calendar3 as calendar3;
 
 use std::path::Path;
 
-use calendar3::{hyper_rustls::{HttpsConnector, self}, CalendarHub, hyper::{self, client::HttpConnector}, api::{Event, EventDateTime}};
+use calendar3::{hyper_rustls::{HttpsConnector, self}, CalendarHub, hyper::{self, client::HttpConnector}, api::{Event, EventDateTime}, oauth2::ServiceAccountKey};
 use serde_json::Value;
 // use reqwest::Response;
 
@@ -75,6 +75,7 @@ fn get_shifts(response: Value) -> Result<Vec<Value>, ()>{
 
 async fn authenticate() -> Result<CalendarHub<HttpsConnector<HttpConnector>>, ()>{
     let path = Path::new("creds.json");
+    
     let secret = calendar3::oauth2::read_service_account_key(path).await;
     match secret {
         Ok(s) => {
