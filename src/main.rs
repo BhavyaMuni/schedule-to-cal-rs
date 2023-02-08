@@ -1,14 +1,15 @@
 extern crate reqwest;
 extern crate google_calendar3 as calendar3;
+extern crate dotenv;
 
-use std::path::Path;
-
-use calendar3::{hyper_rustls::{HttpsConnector, self}, CalendarHub, hyper::{self, client::HttpConnector}, api::{Event, EventDateTime}, oauth2::ServiceAccountKey};
+use calendar3::{hyper_rustls::{HttpsConnector, self}, CalendarHub, hyper::{self, client::HttpConnector}, api::{Event, EventDateTime}};
 use serde_json::Value;
 // use reqwest::Response;
+use dotenv::dotenv;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>>{
+    dotenv().ok();
     // let client = reqwest::Client::builder().build()?;
     reqwest::get(format!("https://myschedule.metro.ca/api/Login/{}", std::env::var("METRO_LOGIN").expect("error in login token")))
         .await?;
@@ -69,14 +70,14 @@ fn create_events(shifts: Vec<Value>) -> Vec<Event>{
 fn get_shifts(response: Value) -> Result<Vec<Value>, ()>{
     // println!("{:#?}", response);
     let times = (&response["WorkTime"]).as_array().expect("Error in response");
-    let objects= (&times[times.len()-14..times.len()-7]).to_vec();
+    let objects= (&times[times.len()-7..]).to_vec();
     Ok(objects)
 }
 
-async fn authenticate() -> Result<CalendarHub<HttpsConnector<HttpConnector>>, ()>{
-    let path = Path::new("creds.json");
-    
-    let secret = calendar3::oauth2::read_service_account_key(path).await;
+async fn authenticate() -> Result<CalendarHub<HttpsConnector<HttpConnector>>, Box<dyn std::error::Error>>{
+    let key = std::env::var("SERVICE_ACCOUNT").expect("Set service acc credentials");
+    println!("{:#?}", key);
+    let secret = calendar3::oauth2::parse_service_account_key(&key);
     match secret {
         Ok(s) => {
             let authenticator = calendar3::oauth2::ServiceAccountAuthenticator::builder(s)
@@ -84,19 +85,9 @@ async fn authenticate() -> Result<CalendarHub<HttpsConnector<HttpConnector>>, ()
             .await;
             match authenticator{
                 Ok(a) => Ok(CalendarHub::new(hyper::Client::builder().build(hyper_rustls::HttpsConnectorBuilder::new().with_native_roots().https_or_http().enable_http1().enable_http2().build()), a)),
-                Err(_) =>  Err(())
+                Err(e) =>  Err(Box::new(e))
             }
         },
-        Err(_) => Err(())
+        Err(e) => Err(Box::new(e))
     }
 }
-
-// fn get_cals(auth: Authenticator<HttpsConnector<HttpConnector>>) -> CalendarHub<HttpsConnector<HttpConnector>>{
-//     let hub =
-//     // let res = hub.events().list("2cd72f29b455540d16ac498dcd96f68dc611837a373f7c67cbfd261f52ff02eb@group.calendar.google.com").doit().await;
-//     // match res{
-//     //     Ok(r) => println!("{:#?}", r),
-//     //     Err(_) => println!("errors again")
-//     // }
-//     hub
-// }
