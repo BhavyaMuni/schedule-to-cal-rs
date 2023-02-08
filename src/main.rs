@@ -76,6 +76,7 @@ fn get_shifts(response: Value) -> Result<Vec<Value>, ()>{
 
 async fn authenticate() -> Result<CalendarHub<HttpsConnector<HttpConnector>>, Box<dyn std::error::Error>>{
     let key = std::env::var("SERVICE_ACCOUNT").expect("Set service acc credentials");
+      
     println!("{:#?}", key);
     let secret = calendar3::oauth2::parse_service_account_key(&key);
     match secret {
