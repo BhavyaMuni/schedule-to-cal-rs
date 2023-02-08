@@ -1,15 +1,26 @@
 extern crate reqwest;
 extern crate google_calendar3 as calendar3;
+<<<<<<< HEAD
 extern crate dotenv;
+=======
+
+use std::path::Path;
+>>>>>>> e6504f4 (COMPLETED EVERYTHING)
 
 use calendar3::{hyper_rustls::{HttpsConnector, self}, CalendarHub, hyper::{self, client::HttpConnector}, api::{Event, EventDateTime}};
 use serde_json::Value;
 // use reqwest::Response;
+<<<<<<< HEAD
 use dotenv::dotenv;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>>{
     dotenv().ok();
+=======
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>>{
+>>>>>>> e6504f4 (COMPLETED EVERYTHING)
     // let client = reqwest::Client::builder().build()?;
     reqwest::get(format!("https://myschedule.metro.ca/api/Login/{}", std::env::var("METRO_LOGIN").expect("error in login token")))
         .await?;
@@ -78,6 +89,7 @@ async fn authenticate() -> Result<CalendarHub<HttpsConnector<HttpConnector>>, Bo
     let key = std::env::var("SERVICE_ACCOUNT").expect("Set service acc credentials");
     println!("{:#?}", key);
     let secret = calendar3::oauth2::parse_service_account_key(&key);
+
     match secret {
         Ok(s) => {
             let authenticator = calendar3::oauth2::ServiceAccountAuthenticator::builder(s)
